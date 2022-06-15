@@ -592,10 +592,10 @@ class DongkapLocalizations {
   }
 
   /// `Connection failed due to internet connection`
-  String get errorDioDefault {
+  String get errorDioOther {
     return Intl.message(
       'Connection failed due to internet connection',
-      name: 'errorDioDefault',
+      name: 'errorDioOther',
       desc: '',
       args: [],
     );
@@ -626,6 +626,16 @@ class DongkapLocalizations {
     return Intl.message(
       'Incorrect Username or Password',
       name: 'badCredentials',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Incorrect Username or Password`
+  String get invalidCredentials {
+    return Intl.message(
+      'Incorrect Username or Password',
+      name: 'invalidCredentials',
       desc: '',
       args: [],
     );

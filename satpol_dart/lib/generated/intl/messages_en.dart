@@ -77,7 +77,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Request was cancelled"),
         "errorDioConnectTimeout":
             MessageLookupByLibrary.simpleMessage("Connection timeout"),
-        "errorDioDefault": MessageLookupByLibrary.simpleMessage(
+        "errorDioOther": MessageLookupByLibrary.simpleMessage(
             "Connection failed due to internet connection"),
         "errorDioReceiveTimeout": MessageLookupByLibrary.simpleMessage(
             "Receive timeout in connection"),
@@ -110,6 +110,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Username / Email"),
         "internalServerError":
             MessageLookupByLibrary.simpleMessage("Internal Server Error"),
+        "invalidCredentials": MessageLookupByLibrary.simpleMessage(
+            "Incorrect Username or Password"),
         "labelBackToLogin":
             MessageLookupByLibrary.simpleMessage("Back to Login"),
         "labelFooterLoginOther":

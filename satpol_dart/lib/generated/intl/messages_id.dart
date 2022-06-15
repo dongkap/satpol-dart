@@ -78,7 +78,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Permintaan dibatalkan"),
         "errorDioConnectTimeout":
             MessageLookupByLibrary.simpleMessage("Koneksi timeout"),
-        "errorDioDefault":
+        "errorDioOther":
             MessageLookupByLibrary.simpleMessage("Koneksi Terputus"),
         "errorDioReceiveTimeout": MessageLookupByLibrary.simpleMessage(
             "Timeout pada saat menerima permintaan"),
@@ -111,6 +111,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Username / Email"),
         "internalServerError":
             MessageLookupByLibrary.simpleMessage("Server gagal diakses"),
+        "invalidCredentials": MessageLookupByLibrary.simpleMessage(
+            "Username atau Kata Sandi salah"),
         "labelBackToLogin":
             MessageLookupByLibrary.simpleMessage("Kembali untuk masuk"),
         "labelFooterLoginOther":

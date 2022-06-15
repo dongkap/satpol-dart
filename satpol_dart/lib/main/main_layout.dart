@@ -5,8 +5,12 @@ import 'package:flutter/material.dart';
 class MainLayout extends StatefulWidget {
   const MainLayout({Key? key}) : super(key: key);
 
+  static Route route() {
+    return MaterialPageRoute<void>(builder: (_) => const MainLayout());
+  }
+
   @override
-  _MainLayoutState createState() => _MainLayoutState();
+  State<MainLayout> createState() => _MainLayoutState();
 }
 
 class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
