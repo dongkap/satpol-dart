@@ -13,4 +13,10 @@ Future<void> setupCoreLocator() async {
       AuthenticationRepository();
   coreLocator
       .registerSingleton<AuthenticationRepository>(authenticationRepository);
+
+  LanguageRepository languageRepository = LanguageRepository();
+  coreLocator.registerSingleton<LanguageRepository>(languageRepository);
+
+  ThemeRepository themeRepository = ThemeRepository();
+  coreLocator.registerSingleton<ThemeRepository>(themeRepository);
 }

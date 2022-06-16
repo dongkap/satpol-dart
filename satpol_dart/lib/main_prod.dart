@@ -9,7 +9,7 @@ import 'package:satpol_dart/dongkap_app.dart';
 void main() async {
   HttpOverrides.global = CustomHttpOverrides();
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: 'assets/environments/dev.env');
+  await dotenv.load(fileName: 'assets/environments/prod.env');
   await setupLocator();
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp,

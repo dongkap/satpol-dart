@@ -31,27 +31,26 @@ class AuthenticationBloc
     return super.close();
   }
 
-  void _onAuthenticationStatusChanged(
-    AuthenticationStatusChanged event,
-    Emitter<AuthenticationState> emit,
-  ) async {
+  void _onAuthenticationStatusChanged(AuthenticationStatusChanged event,
+      Emitter<AuthenticationState> emit) async {
     switch (event.status) {
       case AuthenticationStatus.unauthenticated:
-        return emit(const AuthenticationState.unauthenticated());
+        emit(const AuthenticationState.unauthenticated());
+        break;
       case AuthenticationStatus.authenticated:
         final oAuthResponse = _authService.getOAuthResponse();
-        return emit(oAuthResponse.accessToken.isNotEmpty
+        emit(oAuthResponse.accessToken.isNotEmpty
             ? AuthenticationState.authenticated(oAuthResponse)
             : const AuthenticationState.unauthenticated());
+        break;
       default:
-        return emit(const AuthenticationState.unknown());
+        emit(const AuthenticationState.unknown());
+        break;
     }
   }
 
-  void _onAuthenticationLogoutRequested(
-    AuthenticationLogoutRequested event,
-    Emitter<AuthenticationState> emit,
-  ) async {
+  void _onAuthenticationLogoutRequested(AuthenticationLogoutRequested event,
+      Emitter<AuthenticationState> emit) async {
     await _authService.logOut();
   }
 }

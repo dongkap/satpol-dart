@@ -1,10 +1,9 @@
-import 'package:do_core/models/base_audit_dto.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'locale_dto.g.dart';
 
 @JsonSerializable()
-class LocaleDto extends BaseAuditDto {
+class LocaleDto {
   LocaleDto(
     this.localeCode,
     this.identifier,

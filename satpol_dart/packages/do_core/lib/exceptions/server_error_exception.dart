@@ -43,7 +43,6 @@ class ServerError implements Exception {
         if (_errorResponse.respStatusCode.isNotEmpty) {
           _errorMessage =
               _errorResponse.respStatusMessage[_errorResponse.respStatusCode];
-          _errorMessage = _errorMessage.replaceAll(RegExp(r'[^\w\s]'), '');
           if (_errorResponse.respStatusMessage['invalid_token'] != null) {
             _errorMessage = 'ERR_401';
           }

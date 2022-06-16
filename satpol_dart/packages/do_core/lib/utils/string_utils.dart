@@ -7,6 +7,7 @@ class StringUtils {
             (Match m) =>
                 '${m[0]![0].toUpperCase()}${m[0]?.substring(1).toLowerCase()}')
         .replaceAll(RegExp(r'(_|-|\s)+'), '');
+    s = s.replaceAll(RegExp(r'[^\w\s]'), '');
     return s[0].toLowerCase() + s.substring(1);
   }
 }

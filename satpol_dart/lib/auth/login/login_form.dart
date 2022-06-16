@@ -8,9 +8,15 @@ import 'package:satpol_dart/auth/login/bloc/login_bloc.dart';
 import 'package:satpol_dart/generated/l10n.dart';
 import 'package:satpol_dart/l10n/utils/locale_utils.dart';
 
-class LoginForm extends StatelessWidget {
-  const LoginForm({Key? key}) : super(key: key);
+class LoginForm extends StatefulWidget {
+  const LoginForm({Key? key, required this.controller}) : super(key: key);
 
+  final AnimationController controller;
+  @override
+  State<LoginForm> createState() => _LoginFormState();
+}
+
+class _LoginFormState extends State<LoginForm> {
   @override
   Widget build(BuildContext context) {
     return BlocListener<LoginBloc, LoginState>(
@@ -32,35 +38,37 @@ class LoginForm extends StatelessWidget {
           ).show(context);
         }
       },
-      child: ListView(
-        shrinkWrap: true,
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(left: 24.0, right: 24.0),
-            child: Column(
-              children: <Widget>[
-                const SizedBox(height: 20.0),
-                _TitleLabel(),
-                const SizedBox(height: 8.0),
-                _SubtitleLabel(),
-                const SizedBox(height: 35.0),
-                _UsernameInput(),
-                const SizedBox(height: 8.0),
-                _ForgotPasswordLabel(),
-                _PasswordInput(),
-                const SizedBox(height: 24.0),
-                _LoginButton(),
-                _AdditionalTitleLabel(),
-                const SizedBox(height: 20.0),
-                _GoogleLogin(),
-                const SizedBox(height: 20.0),
-                _RegisterLink(),
-                const SizedBox(height: 35.0),
-                _TermsConditionLink()
-              ],
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 24.0, right: 24.0),
+              child: Column(
+                children: <Widget>[
+                  const SizedBox(height: 20.0),
+                  _TitleLabel(),
+                  const SizedBox(height: 8.0),
+                  _SubtitleLabel(),
+                  const SizedBox(height: 35.0),
+                  _UsernameInput(),
+                  const SizedBox(height: 8.0),
+                  _ForgotPasswordLabel(),
+                  _PasswordInput(),
+                  const SizedBox(height: 24.0),
+                  _LoginButton(),
+                  _AdditionalTitleLabel(),
+                  const SizedBox(height: 20.0),
+                  _GoogleLogin(),
+                  const SizedBox(height: 20.0),
+                  _RegisterLink(),
+                  const SizedBox(height: 35.0),
+                  _TermsConditionLink()
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -163,8 +171,10 @@ class _LoginButton extends StatelessWidget {
                         state.status.isSubmissionInProgress ||
                         state.status.isSubmissionSuccess)
                     ? null
-                    : () =>
-                        {context.read<LoginBloc>().add(const LoginSubmitted())},
+                    : () {
+                        context.read<LoginBloc>().add(const LoginSubmitted());
+                        FocusManager.instance.primaryFocus?.unfocus();
+                      },
                 style: ElevatedButton.styleFrom(
                   primary: Palette.colorTheme,
                   minimumSize: const Size(200.0, 48.0),

@@ -7,9 +7,9 @@ import 'package:do_core/services/shared_preferences_service.dart';
 import 'package:logger/logger.dart';
 
 class AuthenticationRepository {
+  final logger = Logger();
   final SharedPreferencesService _sharedPreferences =
       coreLocator<SharedPreferencesService>();
-  final logger = Logger();
 
   bool get status {
     if (_sharedPreferences.isKeyExists('access_token')) {

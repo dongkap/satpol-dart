@@ -1,9 +1,7 @@
-import 'dart:io';
-
-import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart' hide Headers;
 import 'package:do_core/interceptors/http_basic_interceptors.dart';
 import 'package:do_core/models.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:retrofit/http.dart';
 
 part 'auth_api.g.dart';
@@ -11,7 +9,7 @@ part 'auth_api.g.dart';
 @RestApi()
 abstract class AuthAPI {
   factory AuthAPI(Dio dio) {
-    String baseUrl = 'https://satpol-api-security.herokuapp.com';
+    String baseUrl = dotenv.env['HOST.AUTH'] ?? '';
     dio.options.receiveTimeout = 30000;
     dio.options.connectTimeout = 15000;
     dio.interceptors.add(HttpBasicInterceptors());
