@@ -21,14 +21,26 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
 
   @override
   void initState() {
+    super.initState();
     controller = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 5),
     )..addListener(() {
-        setState(() {});
+        setState(() {
+          if (controller.value >= 0.5 && controller.value < 0.6) {
+            controller.forward();
+            controller.duration = const Duration(seconds: 10);
+          } else if (controller.value >= 0.90) {
+            controller.stop();
+          }
+        });
       });
-    controller.repeat(reverse: true);
-    super.initState();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 
   @override

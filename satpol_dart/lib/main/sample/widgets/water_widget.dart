@@ -1,6 +1,6 @@
 import 'package:do_common/common.dart';
 import 'package:flutter/material.dart';
-import 'package:satpol_dart/main/ui_template/widgets/wave_widget.dart';
+import 'package:satpol_dart/main/sample/widgets/wave_widget.dart';
 
 class WaterWidget extends StatefulWidget {
   const WaterWidget(
@@ -11,7 +11,7 @@ class WaterWidget extends StatefulWidget {
   final Animation<double>? mainScreenAnimation;
 
   @override
-  _WaterWidgetState createState() => _WaterWidgetState();
+  State<WaterWidget> createState() => _WaterWidgetState();
 }
 
 class _WaterWidgetState extends State<WaterWidget>

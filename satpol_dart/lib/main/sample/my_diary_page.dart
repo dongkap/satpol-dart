@@ -1,18 +1,17 @@
 import 'package:do_common/common.dart';
 import 'package:flutter/material.dart';
-import 'package:satpol_dart/main/ui_template/widgets/body_measurement_widget.dart';
-import 'package:satpol_dart/main/ui_template/widgets/glass_widget.dart';
-import 'package:satpol_dart/main/ui_template/widgets/mediterranean_diet_widget.dart';
-import 'package:satpol_dart/main/ui_template/widgets/title_widget.dart';
-import 'package:satpol_dart/main/ui_template/widgets/meals_list_widget.dart';
-import 'package:satpol_dart/main/ui_template/widgets/water_widget.dart';
+import 'package:satpol_dart/main/sample/widgets/body_measurement_widget.dart';
+import 'package:satpol_dart/main/sample/widgets/glass_widget.dart';
+import 'package:satpol_dart/main/sample/widgets/mediterranean_diet_widget.dart';
+import 'package:satpol_dart/main/sample/widgets/meals_list_widget.dart';
+import 'package:satpol_dart/main/sample/widgets/water_widget.dart';
 
 class MyDiaryPage extends StatefulWidget {
   const MyDiaryPage({Key? key, this.animationController}) : super(key: key);
 
   final AnimationController? animationController;
   @override
-  _MyDiaryPageState createState() => _MyDiaryPageState();
+  State<MyDiaryPage> createState() => _MyDiaryPageState();
 }
 
 class _MyDiaryPageState extends State<MyDiaryPage>

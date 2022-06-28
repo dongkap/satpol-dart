@@ -4,10 +4,10 @@ import 'package:do_common/utils/palette.dart';
 import 'package:flutter/material.dart';
 
 // import '../../main.dart';
-import '../models/tab_icon_data.dart';
+import '../../models/tab_icon_data.dart';
 
-class BottomBarWidget extends StatefulWidget {
-  const BottomBarWidget(
+class BottomBarDefault extends StatefulWidget {
+  const BottomBarDefault(
       {Key? key, this.tabIconsList, this.changeIndex, this.addClick})
       : super(key: key);
 
@@ -15,10 +15,10 @@ class BottomBarWidget extends StatefulWidget {
   final Function()? addClick;
   final List<TabIconData>? tabIconsList;
   @override
-  _BottomBarWidgetState createState() => _BottomBarWidgetState();
+  _BottomBarDefaultState createState() => _BottomBarDefaultState();
 }
 
-class _BottomBarWidgetState extends State<BottomBarWidget>
+class _BottomBarDefaultState extends State<BottomBarDefault>
     with TickerProviderStateMixin {
   AnimationController? animationController;
 

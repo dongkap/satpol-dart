@@ -34,7 +34,9 @@ class Palette {
   static const Color colorTheme = Color(0xFF3366FF);
 
   static const Color lightColor = Color(0xFFFFFFFF);
+  static const Color backgroundLightColor = Color(0xFFEDF1F7);
   static const Color darkColor = Color(0xFF0d1117);
+  static const Color menuIconColor = Color(0xFF8F9BB3);
 
   static const String fontName = 'OpenSans';
   static const Color greyText = Color(0xFF9E9E9E);
@@ -57,20 +59,21 @@ class Palette {
   static final ThemeData light = ThemeData(
     platform: TargetPlatform.iOS,
     primaryColor: colorTheme,
-    backgroundColor: lightColor,
+    backgroundColor: backgroundLightColor,
+    splashColor: lightColor,
     appBarTheme: const AppBarTheme(
       color: lightColor,
       titleTextStyle: titleTextStyle,
       shadowColor: darkGrey,
       iconTheme: IconThemeData(color: darkColor),
     ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: lightColor,
-      selectedIconTheme: const IconThemeData(
-        color: darkColor,
+      selectedIconTheme: IconThemeData(
+        color: colorTheme,
       ),
       unselectedIconTheme: IconThemeData(
-        color: darkColor.withOpacity(0.7),
+        color: menuIconColor,
       ),
     ),
     bottomSheetTheme: const BottomSheetThemeData(
@@ -141,6 +144,7 @@ class Palette {
     primaryIconTheme: const IconThemeData(
       color: darkColor,
     ),
+    textSelectionTheme: const TextSelectionThemeData(cursorColor: colorTheme),
     textTheme: const TextTheme(
       headline1: headline1,
       headline4: headline4,
@@ -159,6 +163,7 @@ class Palette {
     primaryColor: colorTheme,
     scaffoldBackgroundColor: darkColor,
     backgroundColor: darkColor,
+    splashColor: darkColor,
     appBarTheme: const AppBarTheme(
       color: darkColor,
       titleTextStyle: titleTextStyleDark,
@@ -242,6 +247,7 @@ class Palette {
     primaryIconTheme: const IconThemeData(
       color: lightColor,
     ),
+    textSelectionTheme: const TextSelectionThemeData(cursorColor: colorTheme),
     textTheme: const TextTheme(
       headline1: headline1Dark,
       headline4: headline4Dark,
@@ -295,7 +301,7 @@ class Palette {
     fontWeight: FontWeight.normal,
     fontSize: 16,
     letterSpacing: 0.18,
-    color: darkText,
+    color: lightTextDefault,
   );
 
   static const TextStyle subtitle1 = TextStyle(

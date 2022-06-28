@@ -8,7 +8,7 @@ class WaveWidget extends StatefulWidget {
 
   const WaveWidget({Key? key, this.percentageValue = 100.0}) : super(key: key);
   @override
-  _WaveWidgetState createState() => _WaveWidgetState();
+  State<WaveWidget> createState() => _WaveWidgetState();
 }
 
 class _WaveWidgetState extends State<WaveWidget> with TickerProviderStateMixin {
@@ -84,6 +84,7 @@ class _WaveWidgetState extends State<WaveWidget> with TickerProviderStateMixin {
         builder: (context, child) => Stack(
           children: <Widget>[
             ClipPath(
+              clipper: WaveClipper(animationController!.value, animList1),
               child: Container(
                 decoration: BoxDecoration(
                   color: Palette.nearlyDarkBlue.withOpacity(0.5),
@@ -102,9 +103,9 @@ class _WaveWidgetState extends State<WaveWidget> with TickerProviderStateMixin {
                   ),
                 ),
               ),
-              clipper: WaveClipper(animationController!.value, animList1),
             ),
             ClipPath(
+              clipper: WaveClipper(animationController!.value, animList2),
               child: Container(
                 decoration: BoxDecoration(
                   color: Palette.nearlyDarkBlue,
@@ -123,7 +124,6 @@ class _WaveWidgetState extends State<WaveWidget> with TickerProviderStateMixin {
                       topRight: Radius.circular(80.0)),
                 ),
               ),
-              clipper: WaveClipper(animationController!.value, animList2),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 48),

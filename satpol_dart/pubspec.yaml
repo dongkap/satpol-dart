@@ -41,6 +41,7 @@ flutter_intl:
 flutter:
   uses-material-design: true
   assets:
+    - assets/avatars/
     - assets/images/
     - assets/fitness_app/
     - assets/eva_icons/fill/svg/

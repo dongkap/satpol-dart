@@ -1,6 +1,6 @@
 import 'package:do_common/common.dart';
 import 'package:flutter/material.dart';
-import 'package:satpol_dart/main/ui_template/models/meals_list_data.dart';
+import 'package:satpol_dart/main/sample/models/meals_list_data.dart';
 
 // import '../../../main.dart';
 
@@ -13,7 +13,7 @@ class MealsListWidget extends StatefulWidget {
   final Animation<double>? mainScreenAnimation;
 
   @override
-  _MealsListWidgetState createState() => _MealsListWidgetState();
+  State<MealsListWidget> createState() => _MealsListWidgetState();
 }
 
 class _MealsListWidgetState extends State<MealsListWidget>

@@ -18,29 +18,29 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
 
   List<TabIconData> tabIconsList = <TabIconData>[
     TabIconData(
-      imagePath: 'assets/fitness_app/tab_1.png',
-      selectedImagePath: 'assets/fitness_app/tab_1s.png',
+      imagePath: 'assets/eva_icons/outline/svg/home-outline.svg',
+      selectedImagePath: 'assets/eva_icons/fill/svg/home.svg',
       index: 0,
       isSelected: true,
       animationController: null,
     ),
     TabIconData(
-      imagePath: 'assets/fitness_app/tab_2.png',
-      selectedImagePath: 'assets/fitness_app/tab_2s.png',
+      imagePath: 'assets/eva_icons/outline/svg/book-outline.svg',
+      selectedImagePath: 'assets/eva_icons/fill/svg/book-open.svg',
       index: 1,
       isSelected: false,
       animationController: null,
     ),
     TabIconData(
-      imagePath: 'assets/fitness_app/tab_3.png',
-      selectedImagePath: 'assets/fitness_app/tab_3s.png',
+      imagePath: 'assets/eva_icons/outline/svg/activity-outline.svg',
+      selectedImagePath: 'assets/eva_icons/fill/svg/activity.svg',
       index: 2,
       isSelected: false,
       animationController: null,
     ),
     TabIconData(
-      imagePath: 'assets/fitness_app/tab_4.png',
-      selectedImagePath: 'assets/fitness_app/tab_4s.png',
+      imagePath: 'assets/eva_icons/outline/svg/person-outline.svg',
+      selectedImagePath: 'assets/eva_icons/fill/svg/person.svg',
       index: 3,
       isSelected: false,
       animationController: null,
@@ -48,11 +48,13 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
   ];
 
   Map<String, GlobalKey<NavigatorState>> navigatorKeys = {
-    TabNavigatorRoutes.diary: GlobalKey<NavigatorState>(),
-    TabNavigatorRoutes.training: GlobalKey<NavigatorState>(),
+    TabNavigatorRoutes.home: GlobalKey<NavigatorState>(),
+    TabNavigatorRoutes.exercise: GlobalKey<NavigatorState>(),
+    TabNavigatorRoutes.uitemplate: GlobalKey<NavigatorState>(),
+    TabNavigatorRoutes.profile: GlobalKey<NavigatorState>(),
   };
 
-  String currentTab = TabNavigatorRoutes.diary;
+  String currentTab = TabNavigatorRoutes.home;
 
   @override
   void initState() {
@@ -62,7 +64,7 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
     tabIconsList[0].isSelected = true;
 
     animationController = AnimationController(
-        duration: const Duration(milliseconds: 600), vsync: this);
+        duration: const Duration(milliseconds: 50), vsync: this);
     super.initState();
   }
 
@@ -75,7 +77,7 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Palette.background,
+      color: Theme.of(context).backgroundColor,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(
@@ -84,11 +86,10 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
               navigatorKey: navigatorKeys[currentTab]!,
               animationController: animationController!,
               tab: currentTab,
-            )
+            ),
+            bottomBar()
           ],
         ),
-        bottomNavigationBar: bottomBar(),
-        extendBody: true,
       ),
     );
   }
@@ -103,24 +104,48 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
           tabIconsList: tabIconsList,
           addClick: () {},
           changeIndex: (int index) {
-            if (index == 0 || index == 2) {
-              animationController?.reverse().then<dynamic>((data) {
-                if (!mounted) {
-                  return;
-                }
-                setState(() {
-                  currentTab = TabNavigatorRoutes.diary;
+            switch (index) {
+              case 0:
+                animationController?.reverse().then<dynamic>((data) {
+                  if (!mounted) {
+                    return;
+                  }
+                  setState(() {
+                    currentTab = TabNavigatorRoutes.home;
+                  });
                 });
-              });
-            } else if (index == 1 || index == 3) {
-              animationController?.reverse().then<dynamic>((data) {
-                if (!mounted) {
-                  return;
-                }
-                setState(() {
-                  currentTab = TabNavigatorRoutes.training;
+                break;
+              case 1:
+                animationController?.reverse().then<dynamic>((data) {
+                  if (!mounted) {
+                    return;
+                  }
+                  setState(() {
+                    currentTab = TabNavigatorRoutes.exercise;
+                  });
                 });
-              });
+                break;
+              case 2:
+                animationController?.reverse().then<dynamic>((data) {
+                  if (!mounted) {
+                    return;
+                  }
+                  setState(() {
+                    currentTab = TabNavigatorRoutes.uitemplate;
+                  });
+                });
+                break;
+              case 3:
+                animationController?.reverse().then<dynamic>((data) {
+                  if (!mounted) {
+                    return;
+                  }
+                  setState(() {
+                    currentTab = TabNavigatorRoutes.profile;
+                  });
+                });
+                break;
+              default:
             }
           },
         ),

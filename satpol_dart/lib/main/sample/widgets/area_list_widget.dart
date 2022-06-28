@@ -9,7 +9,7 @@ class AreaListWidget extends StatefulWidget {
   final AnimationController? mainScreenAnimationController;
   final Animation<double>? mainScreenAnimation;
   @override
-  _AreaListWidgetState createState() => _AreaListWidgetState();
+  State<AreaListWidget> createState() => _AreaListWidgetState();
 }
 
 class _AreaListWidgetState extends State<AreaListWidget>
@@ -54,6 +54,12 @@ class _AreaListWidgetState extends State<AreaListWidget>
                       left: 16, right: 16, top: 16, bottom: 16),
                   physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.vertical,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 24.0,
+                    crossAxisSpacing: 24.0,
+                    childAspectRatio: 1.0,
+                  ),
                   children: List<Widget>.generate(
                     areaListData.length,
                     (int index) {
@@ -73,12 +79,6 @@ class _AreaListWidgetState extends State<AreaListWidget>
                         animationController: animationController!,
                       );
                     },
-                  ),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 24.0,
-                    crossAxisSpacing: 24.0,
-                    childAspectRatio: 1.0,
                   ),
                 ),
               ),

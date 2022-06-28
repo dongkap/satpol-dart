@@ -68,7 +68,8 @@ class _DongkapAppState extends State<DongkapAppView> {
           builder: (BuildContext context, ThemeModeState themeState) {
             SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
               statusBarColor: Colors.transparent,
-              statusBarIconBrightness: Brightness.light,
+              statusBarIconBrightness:
+                  themeState.darkMode ? Brightness.light : Brightness.dark,
               statusBarBrightness:
                   Platform.isAndroid ? Brightness.dark : Brightness.light,
               systemNavigationBarColor: Colors.white,

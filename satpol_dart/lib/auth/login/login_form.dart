@@ -17,11 +17,18 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
+  int progress = 0;
+
+  void progressCount() async {
+    await Future<dynamic>.delayed(const Duration(milliseconds: 50));
+    progress++;
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocListener<LoginBloc, LoginState>(
       listener: (context, state) {
-        if (state.action.isSubmissionFailure) {
+        if (state.status.isSubmissionFailure) {
           Flushbar(
             messageText: Text(
               LocaleUtils.translate(
@@ -36,6 +43,15 @@ class _LoginFormState extends State<LoginForm> {
             isDismissible: false,
             dismissDirection: FlushbarDismissDirection.VERTICAL,
           ).show(context);
+          widget.controller.value = 0;
+          widget.controller.duration = const Duration(seconds: 5);
+          widget.controller.stop();
+        } else if (state.status.isSubmissionInProgress) {
+          widget.controller.forward();
+        } else if (state.status.isSubmissionSuccess) {
+          widget.controller.value = 1;
+          widget.controller.duration = const Duration(seconds: 5);
+          widget.controller.stop();
         }
       },
       child: SingleChildScrollView(

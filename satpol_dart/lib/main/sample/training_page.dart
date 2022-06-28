@@ -1,16 +1,15 @@
 import 'package:do_common/common.dart';
 import 'package:flutter/material.dart';
-import 'package:satpol_dart/main/ui_template/widgets/area_list_widget.dart';
-import 'package:satpol_dart/main/ui_template/widgets/running_widget.dart';
-import 'package:satpol_dart/main/ui_template/widgets/title_widget.dart';
-import 'package:satpol_dart/main/ui_template/widgets/workout_widget.dart';
+import 'package:satpol_dart/main/sample/widgets/area_list_widget.dart';
+import 'package:satpol_dart/main/sample/widgets/running_widget.dart';
+import 'package:satpol_dart/main/sample/widgets/workout_widget.dart';
 
 class TrainingPage extends StatefulWidget {
   const TrainingPage({Key? key, this.animationController}) : super(key: key);
 
   final AnimationController? animationController;
   @override
-  _TrainingPageState createState() => _TrainingPageState();
+  State<TrainingPage> createState() => _TrainingPageState();
 }
 
 class _TrainingPageState extends State<TrainingPage>

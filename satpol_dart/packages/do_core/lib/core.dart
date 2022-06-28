@@ -9,7 +9,8 @@ export 'repositories/theme_repository.dart';
 export 'services/shared_preferences_service.dart';
 export 'services/core_locator.dart';
 
-export 'utils/string_utils.dart';
 export 'utils/custom_http_overides.dart';
+export 'utils/encryption_service.dart';
+export 'utils/string_utils.dart';
 
 export 'exceptions/server_error_exception.dart';
